@@ -1,103 +1,157 @@
-import Image from "next/image";
+'use client';
+
+import { useState, useEffect } from "react";
+
+const TypingEffect = ({ text, speed = 150 }: { text: string; speed?: number }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, speed);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text, speed]);
+
+  return (
+    <span className="font-mono text-green-400">
+      {displayedText}
+      <span className="animate-pulse">|</span>
+    </span>
+  );
+};
+
+const CodeBlock = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+  <div className={`bg-gray-900 rounded-lg p-4 font-mono text-sm ${className}`}>
+    {children}
+  </div>
+);
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [currentCommand, setCurrentCommand] = useState(0);
+  const commands = [
+    "npm install dekcommorkhor",
+    "git clone https://github.com/jrKitt/comscikku",
+    "python generate_ideas.py --mode=creative",
+    "node server.js --port=3000 --env=development",
+    "docker run -p 8080:80 comscikku/webapp:latest"
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentCommand((prev) => (prev + 1) % commands.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [commands.length]);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-black to-blue-800 text-white">
+      <div className="container mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+          {/* Left Side - Profile & Info */}
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30">
+                <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-blue-200">กำลังออนไลน์</span>
+              </div>
+              <div>
+                <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent mb-4">
+                  Dev Community KKU
+                </h1>
+                <p className="text-xl text-blue-100 mb-6">
+                  ชุมชนนักพัฒนา | มหาวิทยาลัยขอนแก่น
+                </p>
+                <div className="prose prose-invert max-w-none">
+                  <p className="text-blue-200 leading-relaxed">
+                    พื้นที่รวมตัวของนักพัฒนา นักออกแบบ และผู้สนใจเทคโนโลยีจากทุกคณะใน มข. <br />
+                    แลกเปลี่ยนความรู้ แชร์โปรเจกต์ สร้างเครือข่าย และผลักดันวงการ IT ในรั้วมหาวิทยาลัย
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-blue-900/60 rounded-lg p-4 border border-blue-800">
+                  <div className="text-2xl font-bold text-blue-300">500+</div>
+                  <div className="text-sm text-blue-100">สมาชิกทั้งหมด</div>
+                </div>
+                
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors text-white">
+                  เข้าร่วมกับเรา
+                </button>
+                <button className="px-6 py-3 bg-black hover:bg-blue-900 rounded-lg font-medium border border-blue-700 transition-colors text-blue-100">
+                  ดูกิจกรรม
+                </button>
+              </div>
+            </div>
+          </div>
+          {/* Right Side - Terminal & Code */}
+          <div className="space-y-6">
+            <CodeBlock className="border border-blue-800">
+              <div className="flex items-center gap-2 mb-3 pb-3 border-b border-blue-800">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
+                <span className="text-blue-200 text-xs ml-2">terminal</span>
+              </div>
+              <div className="space-y-2">
+                <div className="text-cyan-300">
+                  <span className="text-blue-400">user@devkku</span>
+                  <span className="text-white">:</span>
+                  <span className="text-cyan-400">~/community</span>
+                  <span className="text-white">$ </span>
+                  <TypingEffect text={commands[currentCommand]} speed={100} />
+                </div>
+                <div className="text-blue-200 text-xs">
+                  ✓ กำลังเริ่มต้นการเรียนรู้และพัฒนาร่วมกัน...
+                </div>
+              </div>
+            </CodeBlock>
+            <CodeBlock className="border border-blue-800">
+              <div className="text-blue-200 text-xs mb-2">{`// คลาสหลักของชุมชน Dev KKU`}</div>
+              <div className="space-y-1">
+                <div><span className="text-blue-400">class</span> <span className="text-cyan-300">DevCommunityKKU</span> <span className="text-white">{"{"}</span></div>
+                <div className="pl-4">
+                  <div><span className="text-cyan-400">constructor</span><span className="text-white">(</span><span className="text-blue-200">vision</span><span className="text-white">) {"{"}</span></div>
+                  <div className="pl-4">
+                    <div><span className="text-blue-400">this</span><span className="text-white">.mission = </span><span className="text-cyan-300">&quot;สร้างพื้นที่แห่งการเรียนรู้และพัฒนา&quot;</span><span className="text-white">;</span></div>
+                    <div><span className="text-blue-400">this</span><span className="text-white">.values = [</span><span className="text-cyan-300">&quot;Open Source&quot;</span><span className="text-white">, </span><span className="text-cyan-300">&quot;Collaboration&quot;</span><span className="text-white">, </span><span className="text-cyan-300">&quot;Creativity&quot;</span><span className="text-white">];</span></div>
+                  </div>
+                  <div><span className="text-white">{"}"}</span></div>
+                </div>
+                <div className="pl-4">
+                  <div><span className="text-cyan-400">async</span> <span className="text-blue-200">buildFuture</span><span className="text-white">() {"{"}</span></div>
+                  <div className="pl-4">
+                    <div><span className="text-blue-400">return</span> <span className="text-cyan-400">await</span> <span className="text-blue-400">this</span><span className="text-white">.members.map(</span><span className="text-blue-200">m</span> <span className="text-white">{" => "} m.learn());</span></div>
+                  </div>
+                  <div className="pl-4"><span className="text-white">{"}"}</span></div>
+                </div>
+                <div><span className="text-white">{"}"}</span></div>
+              </div>
+            </CodeBlock>
+            {/* <div className="grid grid-cols-2 gap-4">
+              <div className="bg-blue-900/60 rounded-lg p-4 border border-blue-800">
+                <div className="text-lg font-bold text-blue-300 mb-2">ล่าสุด</div>
+                <div className="text-sm text-blue-100">CP Camp 2567</div>
+                <div className="text-xs text-blue-200">ค่ายพัฒนาทักษะโค้ดดิ้ง</div>
+              </div>
+              <div className="bg-blue-900/60 rounded-lg p-4 border border-blue-800">
+                <div className="text-lg font-bold text-cyan-300 mb-2">กิจกรรม</div>
+                <div className="text-sm text-blue-100">Hackathon 2567</div>
+                <div className="text-xs text-blue-200">แข่งขันพัฒนาแอป 24 ชม.</div>
+              </div>
+            </div> */}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
