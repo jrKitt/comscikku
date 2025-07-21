@@ -63,25 +63,24 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-black to-blue-800 text-white">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
-          {/* Left Side - Profile & Info */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
           <div className="space-y-8">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 w-fit mx-auto lg:mx-0">
                 <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
                 <span className="text-sm font-medium text-blue-200">
                   กำลังออนไลน์
                 </span>
               </div>
-              <div>
-                <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent mb-4">
+              <div className="text-center lg:text-left">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent mb-4">
                   Dev Community KKU
                 </h1>
-                <p className="text-xl text-blue-100 mb-6">
+                <p className="text-lg sm:text-xl text-blue-100 mb-6">
                   ชุมชนนักพัฒนา | มหาวิทยาลัยขอนแก่น
                 </p>
-                <div className="prose prose-invert max-w-none">
+                <div className="prose prose-invert max-w-none mx-auto lg:mx-0">
                   <p className="text-blue-200 leading-relaxed">
                     พื้นที่รวมตัวของนักพัฒนา นักออกแบบ
                     และผู้สนใจเทคโนโลยีจากทุกคณะใน มข. <br />
@@ -90,25 +89,24 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-blue-900/60 rounded-lg p-4 border border-blue-800">
+              <div className="grid grid-cols-2 gap-4 max-w-xs mx-auto lg:mx-0">
+                <div className="bg-blue-900/60 rounded-lg p-4 border border-blue-800 text-center">
                   <div className="text-2xl font-bold text-blue-300">500+</div>
                   <div className="text-sm text-blue-100">สมาชิกทั้งหมด</div>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-3">
-                <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors text-white">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center lg:justify-start">
+                <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors text-white w-full sm:w-auto">
                   เข้าร่วมกับเรา
                 </button>
-                <button className="px-6 py-3 bg-black hover:bg-blue-900 rounded-lg font-medium border border-blue-700 transition-colors text-blue-100">
+                <button className="px-6 py-3 bg-black hover:bg-blue-900 rounded-lg font-medium border border-blue-700 transition-colors text-blue-100 w-full sm:w-auto">
                   ดูกิจกรรม
                 </button>
               </div>
             </div>
           </div>
-          {/* Right Side - Terminal & Code */}
-          <div className="space-y-6">
-            <CodeBlock className="border border-blue-800">
+          <div className="space-y-6 mt-10 lg:mt-0">
+            <CodeBlock className="border border-blue-800 overflow-x-auto">
               <div className="flex items-center gap-2 mb-3 pb-3 border-b border-blue-800">
                 <div className="flex gap-2">
                   <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
@@ -118,7 +116,7 @@ export default function Home() {
                 <span className="text-blue-200 text-xs ml-2">terminal</span>
               </div>
               <div className="space-y-2">
-                <div className="text-cyan-300">
+                <div className="text-cyan-300 text-xs sm:text-base break-all">
                   <span className="text-blue-400">user@devkku</span>
                   <span className="text-white">:</span>
                   <span className="text-cyan-400">~/community</span>
@@ -130,9 +128,9 @@ export default function Home() {
                 </div>
               </div>
             </CodeBlock>
-            <CodeBlock className="border border-blue-800">
+            <CodeBlock className="border border-blue-800 overflow-x-auto">
               <div className="text-blue-200 text-xs mb-2">{`// คลาสหลักของชุมชน Dev KKU`}</div>
-              <div className="space-y-1">
+              <div className="space-y-1 text-xs sm:text-sm">
                 <div>
                   <span className="text-blue-400">class</span>{" "}
                   <span className="text-cyan-300">DevCommunityKKU</span>{" "}
@@ -201,14 +199,6 @@ export default function Home() {
               </div>
             </CodeBlock>
           </div>
-          {/* <div className="">
-            <p>Contributo</p>
-          </div>
-          <div className="grid grid-cols-2 gap4">
-            <div className="text-lg font-bold text-cyan-300 mb-2">กิจกรรม</div>
-            <div className="text-sm text-blue-100">Hackathon 2567</div>
-            <div className="text-xs text-blue-200">แข่งขันพัฒนาแอป 24 ชม.</div>
-          </div> */}
         </div>
       </div>
     </div>
