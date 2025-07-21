@@ -118,7 +118,7 @@ const Navbar = () => {
                                     onClick={() => setIsMenuOpen(false)}
                                     className="flex items-center py-3 px-4 text-gray-900 rounded-xl hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 transition-colors"
                                 >
-                                   <i className="bi bi-code"></i> GitHub
+                                   <i className="bi bi-code mr-3"></i> GitHub
                                 </a>
                             </li>
                         </ul>
