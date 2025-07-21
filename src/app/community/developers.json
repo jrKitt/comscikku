@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Kittichai Raksawong",
+    "name": "กิตติชัย รักษาวงค์",
     "username": "@jrKitt",
     "title": "Full-Stack Developer",
     "bio": "Hi, I'm Honda. I'm currently working as a Junior Full Stack Developer (Part-time) at APSTH ",
@@ -24,20 +24,6 @@
     "skills": ["Java"],
     "links": {
       "github": "https://github.com/B-bsw",
-      "website": "",
-      "linkedin": ""
-    }
-  },
-  {
-    "id": 3,
-    "name": "NaiNai",
-    "username": "@aekkarin.b",
-    "title": "Software Engineer",
-    "bio": "whatever stacks just let me join the team",
-    "avatar": "https://avatars.githubusercontent.com/u/154683049?v=4",
-    "skills": ["TypeScript","NodeJs","Golang"],
-    "links": {
-      "github": "https://github.com/AekkarinDEV",
       "website": "",
       "linkedin": ""
     }
