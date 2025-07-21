@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-const developersData = "../../Developer/developers.json";
+import developers from "../../Developer/developers.json";
 
 const TypingEffect = ({
   text,
@@ -94,7 +94,8 @@ export default function Home() {
                 <div className="bg-blue-900/60 rounded-lg p-4 border border-blue-800 text-center">
                     <div className="text-2xl font-bold text-blue-300">
                     {(() => {
-                      return `${developersData.length}+`;
+                        
+                        return `${developers.length}+`;
                     })()}
                     </div>
                   <div className="text-sm text-blue-100">สมาชิกทั้งหมด</div>
