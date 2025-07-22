@@ -39,4 +39,8 @@ cd ./Developer
 - [@bb](https://github.com/B-bsw)
 - [@AekkarinDEV](https://github.com/AekkarinDEV)
 
-<img src="https://i.pinimg.com/736x/45/05/5f/45055fa20e629152b19d7aa50d554a43.jpg" />
+<center>
+
+<img src="https://img2.pic.in.th/pic/Screenshot-2568-07-22-at-13.48.57.png" alt="Screenshot 2568 07 22 at 13.48.57" border="0">
+
+</center>
