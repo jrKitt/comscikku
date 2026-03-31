@@ -66,9 +66,13 @@ export default function CommunityPage() {
   const allSkills = [...new Set(developers.flatMap(dev => dev.skills))].sort();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-black to-blue-800 text-white">
-      <div className="pt-20 px-6 py-12">
+    <div className="min-h-screen text-[color:var(--foreground)]">
+      <div className="pt-24 px-6 py-12">
         <div className="container mx-auto">
+          <div className="soft-card bg-[color:var(--surface-soft)] px-4 py-3 text-sm text-[color:var(--text-muted)]">
+            Home / Community
+          </div>
+
           <div className="mt-6 mb-8 flex flex-col lg:flex-row gap-4 max-w-4xl mx-auto">
             <div className="flex-1">
               <input
@@ -76,14 +80,14 @@ export default function CommunityPage() {
                 placeholder="ค้นหา"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-3 bg-blue-900/60 border border-blue-800 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:border-blue-600"
+                className="w-full px-4 py-3 rounded-lg border border-[color:var(--border-soft)] bg-[color:var(--surface)] text-[color:var(--foreground)] placeholder:text-[color:var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[color:var(--brand)]"
               />
             </div>
             <div className="lg:w-64">
               <select
                 value={selectedSkill}
                 onChange={(e) => setSelectedSkill(e.target.value)}
-                className="w-full px-4 py-3 bg-blue-900/60 border border-blue-800 rounded-lg text-white focus:outline-none focus:border-blue-600"
+                className="w-full px-4 py-3 rounded-lg border border-[color:var(--border-soft)] bg-[color:var(--surface)] text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[color:var(--brand)]"
               >
                 <option value="">ทุกสกิล</option>
                 {allSkills.map(skill => (
@@ -95,28 +99,28 @@ export default function CommunityPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredDevelopers.map(dev => (
-              <div key={dev.id} className="bg-blue-900/60 backdrop-blur-lg border border-blue-800/50 rounded-xl p-6 hover:bg-blue-900/80 transition-all duration-300 hover:transform hover:scale-105">
+              <div key={dev.id} className="soft-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                 <div className="flex items-center gap-4 mb-4">
                   <Image
                     src={dev.avatar}
                     alt={dev.name}
                     width={64}
                     height={64}
-                    className="w-16 h-16 rounded-full border-2 border-blue-400"
+                    className="w-16 h-16 rounded-full border-2 border-blue-200"
                   />
                   <div>
-                    <h3 className="text-xl font-bold text-white">{dev.name}</h3>
-                    <p className="text-blue-300">{dev.username}</p>
-                    <p className="text-sm text-cyan-300">{dev.title}</p>
+                    <h3 className="text-xl font-bold text-[color:var(--foreground)]">{dev.name}</h3>
+                    <p className="text-[color:var(--text-muted)]">{dev.username}</p>
+                    <p className="text-sm text-[color:var(--brand-deep)]">{dev.title}</p>
                   </div>
                 </div>
 
-                <p className="text-blue-200 text-sm mb-4 leading-relaxed">
+                <p className="text-[color:var(--text-muted)] text-sm mb-4 leading-relaxed">
                   {dev.bio}
                 </p>
 
                 <div className="mb-4">
-                  <p className="text-sm font-medium text-blue-100 mb-2">Skills:</p>
+                  <p className="text-sm font-medium text-[color:var(--foreground)] mb-2">Skills:</p>
                   <div className="flex flex-wrap gap-2">
                     {dev.skills.map(skill => (
                       <span
@@ -130,13 +134,13 @@ export default function CommunityPage() {
                 </div>
 
                 {/* Social Links */}
-                <div className="flex gap-3 pt-4 border-t border-blue-800">
+                <div className="flex gap-3 pt-4 border-t border-[color:var(--border-soft)]">
                   {dev.links.github && (
                     <a
                       href={dev.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center w-8 h-8 bg-gray-800 hover:bg-gray-700 rounded-full transition-colors"
+                      className="flex items-center justify-center w-8 h-8 bg-gray-700 hover:bg-gray-800 rounded-full transition-colors"
                       title="GitHub"
                     >
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -149,7 +153,7 @@ export default function CommunityPage() {
                       href={dev.links.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center w-8 h-8 bg-blue-600 hover:bg-blue-700 rounded-full transition-colors"
+                      className="flex items-center justify-center w-8 h-8 bg-[color:var(--brand)] hover:bg-[color:var(--brand-deep)] rounded-full transition-colors"
                       title="Website"
                     >
                       <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,19 +195,19 @@ export default function CommunityPage() {
           {/* No Results */}
           {filteredDevelopers.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-blue-200 text-lg">ไม่พบ developer ที่ตรงกับการค้นหา</p>
+              <p className="text-[color:var(--text-muted)] text-lg">ไม่พบ developer ที่ตรงกับการค้นหา</p>
             </div>
           )}
 
           {/* Call to Action */}
-          <div className="text-center mt-16 p-8 bg-blue-900/40 backdrop-blur-lg border border-blue-800/50 rounded-xl">
-            <h2 className="text-2xl font-bold text-white mb-4">
+          <div className="text-center mt-16 p-8 soft-card bg-[color:var(--surface)]">
+            <h2 className="text-2xl font-bold text-[color:var(--foreground)] mb-4">
               ต้องการเข้าร่วมชุมชนนักพัฒนา?
             </h2>
-            <p className="text-blue-200 mb-6">
+            <p className="text-[color:var(--text-muted)] mb-6">
               สมัครเข้าร่วมกับเราและแสดงผลงานของคุณให้คนอื่นได้เห็น
             </p>
-            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors text-white">
+            <button className="px-8 py-3 bg-[color:var(--brand)] hover:bg-[color:var(--brand-deep)] rounded-lg font-medium transition-colors text-white">
               เข้าร่วมชุมชน
             </button>
           </div>

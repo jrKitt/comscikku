@@ -63,147 +63,86 @@ export default function Home() {
   }, [commands.length]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-black to-blue-800 text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 w-fit mx-auto lg:mx-0">
-                <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium text-blue-200">
+    <div className="min-h-screen text-[color:var(--foreground)]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-14">
+        <div className="soft-card bg-[color:var(--surface-soft)] px-4 py-3 text-sm text-[color:var(--text-muted)]">
+          Home / Communities
+        </div>
+
+        <div className="soft-card mt-6 bg-[color:var(--surface)] p-6 sm:p-10 text-center">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 w-fit mx-auto">
+            <div className="w-2 h-2 bg-[color:var(--brand)] rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-[color:var(--brand-deep)]">
                   กำลังออนไลน์
-                </span>
-              </div>
-              <div className="text-center lg:text-left">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent mb-4">
-                  Dev Community KKU
-                </h1>
-                <p className="text-lg sm:text-xl text-blue-100 mb-6">
-                  ชุมชนนักพัฒนา | มหาวิทยาลัยขอนแก่น
-                </p>
-                <div className="prose prose-invert max-w-none mx-auto lg:mx-0">
-                  <p className="text-blue-200 leading-relaxed">
-                    พื้นที่รวมตัวของนักพัฒนา นักออกแบบ
-                    และผู้สนใจเทคโนโลยีจากทุกคณะใน มข. <br />
-                    แลกเปลี่ยนความรู้ แชร์โปรเจกต์ สร้างเครือข่าย
-                    และผลักดันวงการ IT ในรั้วมหาวิทยาลัย
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4 max-w-xs mx-auto lg:mx-0">
-                <div className="bg-blue-900/60 rounded-lg p-4 border border-blue-800 text-center">
-                    <div className="text-2xl font-bold text-blue-300">
-                    {(() => {
-                        
-                        return `${developers.length}+`;
-                    })()}
-                    </div>
-                  <div className="text-sm text-blue-100">สมาชิกทั้งหมด</div>
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center lg:justify-start">
-                <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors text-white w-full sm:w-auto">
-                  เข้าร่วมกับเรา
-                </button>
-                <button className="px-6 py-3 bg-black hover:bg-blue-900 rounded-lg font-medium border border-blue-700 transition-colors text-blue-100 w-full sm:w-auto">
-                  ดูกิจกรรม
-                </button>
+            </span>
+          </div>
+
+          <h1 className="mt-5 text-4xl sm:text-5xl font-bold text-[color:var(--foreground)]">
+            ชุมชนนักพัฒนา
+          </h1>
+          <p className="mx-auto mt-4 max-w-3xl text-base sm:text-lg text-[color:var(--text-muted)] leading-relaxed">
+            เข้าร่วมชุมชนนักพัฒนาที่กำลังเติบโตของเรา เพื่อเชื่อมต่อกับเพื่อนโปรแกรมเมอร์
+            แบ่งปันความรู้ ร่วมมือในโปรเจกต์ต่างๆ และเติบโตไปด้วยกัน
+          </p>
+        </div>
+
+        <div className="soft-card mt-6 bg-[color:var(--surface)] p-4 sm:p-6">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
+            <input
+              type="text"
+              placeholder="Search communities or topics"
+              className="w-full rounded-xl border border-[color:var(--border-soft)] bg-[color:var(--surface-soft)] px-4 py-3 text-[color:var(--foreground)] placeholder:text-[color:var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[color:var(--brand)]"
+            />
+            <button className="rounded-xl bg-[color:var(--brand)] hover:bg-[color:var(--brand-deep)] px-7 py-3 font-medium text-white transition-colors">
+              Search Communities
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold">Developer Hub KKU</h2>
+            <p className="text-[color:var(--text-muted)] leading-relaxed">
+              พื้นที่รวมตัวของนักพัฒนา นักออกแบบ และผู้สนใจเทคโนโลยี
+              จากทุกคณะในมหาวิทยาลัยขอนแก่น
+            </p>
+            <div className="soft-card p-5">
+              <div className="text-sm text-[color:var(--text-muted)]">สมาชิกทั้งหมด</div>
+              <div className="text-4xl font-bold mt-2 text-[color:var(--brand-deep)]">
+                {developers.length}+
               </div>
             </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button className="px-6 py-3 bg-[color:var(--brand)] hover:bg-[color:var(--brand-deep)] rounded-lg font-medium transition-colors text-white">
+                เข้าร่วมกับเรา
+              </button>
+              <button className="px-6 py-3 bg-white hover:bg-[color:var(--surface-soft)] rounded-lg font-medium border border-[color:var(--border-soft)] transition-colors text-[color:var(--foreground)]">
+                ดูกิจกรรม
+              </button>
+            </div>
           </div>
-          <div className="space-y-6 mt-10 lg:mt-0">
-            <CodeBlock className="border border-blue-800 overflow-x-auto">
-              <div className="flex items-center gap-2 mb-3 pb-3 border-b border-blue-800">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
-                </div>
-                <span className="text-blue-200 text-xs ml-2">terminal</span>
+
+          <div className="soft-card p-5 overflow-x-auto">
+            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-[color:var(--border-soft)]">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                <div className="w-3 h-3 bg-amber-400 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-400 rounded-full"></div>
               </div>
-              <div className="space-y-2">
-                <div className="text-cyan-300 text-xs sm:text-base break-all">
-                  <span className="text-blue-400">user@devkku</span>
-                  <span className="text-white">:</span>
-                  <span className="text-cyan-400">~/community</span>
-                  <span className="text-white">$ </span>
-                  <TypingEffect text={commands[currentCommand]} speed={100} />
-                </div>
-                <div className="text-blue-200 text-xs">
-                  ✓ กำลังเริ่มต้นการเรียนรู้และพัฒนาร่วมกัน...
-                </div>
+              <span className="text-[color:var(--text-muted)] text-xs ml-2">terminal</span>
+            </div>
+            <div className="space-y-2">
+              <div className="text-[color:var(--foreground)] text-xs sm:text-base break-all font-mono">
+                <span className="text-[color:var(--brand-deep)]">user@devkku</span>
+                <span>:</span>
+                <span className="text-cyan-700">~/community</span>
+                <span>$ </span>
+                <TypingEffect text={commands[currentCommand]} speed={100} />
               </div>
-            </CodeBlock>
-            <CodeBlock className="border border-blue-800 overflow-x-auto">
-              <div className="text-blue-200 text-xs mb-2">{`// คลาสหลักของชุมชน Dev KKU`}</div>
-              <div className="space-y-1 text-xs sm:text-sm">
-                <div>
-                  <span className="text-blue-400">class</span>{" "}
-                  <span className="text-cyan-300">DevCommunityKKU</span>{" "}
-                  <span className="text-white">{"{"}</span>
-                </div>
-                <div className="pl-4">
-                  <div>
-                    <span className="text-cyan-400">constructor</span>
-                    <span className="text-white">(</span>
-                    <span className="text-blue-200">vision</span>
-                    <span className="text-white">) {"{"}</span>
-                  </div>
-                  <div className="pl-4">
-                    <div>
-                      <span className="text-blue-400">this</span>
-                      <span className="text-white">.mission = </span>
-                      <span className="text-cyan-300">
-                        &quot;สร้างพื้นที่แห่งการเรียนรู้และพัฒนา&quot;
-                      </span>
-                      <span className="text-white">;</span>
-                    </div>
-                    <div>
-                      <span className="text-blue-400">this</span>
-                      <span className="text-white">.values = [</span>
-                      <span className="text-cyan-300">
-                        &quot;Open Source&quot;
-                      </span>
-                      <span className="text-white">, </span>
-                      <span className="text-cyan-300">
-                        &quot;Collaboration&quot;
-                      </span>
-                      <span className="text-white">, </span>
-                      <span className="text-cyan-300">
-                        &quot;Creativity&quot;
-                      </span>
-                      <span className="text-white">];</span>
-                    </div>
-                  </div>
-                  <div>
-                    <span className="text-white">{"}"}</span>
-                  </div>
-                </div>
-                <div className="pl-4">
-                  <div>
-                    <span className="text-cyan-400">async</span>{" "}
-                    <span className="text-blue-200">buildFuture</span>
-                    <span className="text-white">() {"{"}</span>
-                  </div>
-                  <div className="pl-4">
-                    <div>
-                      <span className="text-blue-400">return</span>{" "}
-                      <span className="text-cyan-400">await</span>{" "}
-                      <span className="text-blue-400">this</span>
-                      <span className="text-white">.members.map(</span>
-                      <span className="text-blue-200">m</span>{" "}
-                      <span className="text-white">{" => "} m.learn());</span>
-                    </div>
-                  </div>
-                  <div className="pl-4">
-                    <span className="text-white">{"}"}</span>
-                  </div>
-                </div>
-                <div>
-                  <span className="text-white">{"}"}</span>
-                </div>
+              <div className="text-[color:var(--text-muted)] text-xs">
+                ระบบกำลังจับคู่สมาชิกกับทีมโปรเจกต์...
               </div>
-            </CodeBlock>
+            </div>
           </div>
         </div>
       </div>

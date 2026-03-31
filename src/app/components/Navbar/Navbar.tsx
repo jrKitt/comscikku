@@ -11,21 +11,21 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-6xl px-4">
-            <div className="backdrop-blur-xl bg-white/30 dark:bg-gray-900/30 border border-white/40 dark:border-gray-700/40 rounded-3xl shadow-lg">
+        <nav className="fixed top-4 left-1/2 z-50 w-full max-w-6xl -translate-x-1/2 px-4">
+            <div className="rounded-2xl border border-[color:var(--border-soft)] bg-white/95 shadow-sm backdrop-blur">
                 <div className="flex flex-wrap items-center justify-between px-6 py-3 mx-auto">
                     <div className="flex items-center">
-                        <span className="text-xl font-bold text-gray-900 dark:text-white">
-                            Dev Community KKU
+                        <span className="text-xl font-semibold text-[color:var(--foreground)]">
+                            CP DEV Community
                         </span>
                     </div>
 
                     <div className="hidden md:block">
-                        <ul className="font-medium flex flex-row space-x-8">
+                        <ul className="font-medium flex flex-row space-x-4">
                             <li>
                                 <Link
                                     href="/"
-                                    className="py-2 px-3 text-white bg-blue-700 rounded-xl md:bg-transparent md:text-blue-700 dark:text-white md:dark:text-blue-500 transition-colors"
+                                    className="py-2 px-4 text-white bg-[color:var(--brand)] hover:bg-[color:var(--brand-deep)] rounded-xl transition-colors"
                                     aria-current="page"
                                 >
                                     <i className="bi bi-house"></i> Home
@@ -35,7 +35,7 @@ const Navbar = () => {
                             <li>
                                 <Link
                                     href="/community"
-                                    className="py-2 px-3 text-gray-900 rounded-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent transition-colors"
+                                    className="py-2 px-4 text-[color:var(--foreground)] rounded-xl hover:bg-[color:var(--surface-soft)] transition-colors"
                                 >
                                     <i className="bi bi-people"></i> Community
                                 </Link>
@@ -44,7 +44,7 @@ const Navbar = () => {
                             <li>
                                 <a
                                     href="https://github.com/jrKitt/comscikku"
-                                    className="py-2 px-3 text-gray-900 rounded-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent transition-colors"
+                                    className="py-2 px-4 text-[color:var(--foreground)] rounded-xl hover:bg-[color:var(--surface-soft)] transition-colors"
                                 >
                                    <i className="bi bi-code"></i> GitHub
                                 </a>
@@ -55,7 +55,7 @@ const Navbar = () => {
                     <button
                         type="button"
                         onClick={toggleMenu}
-                        className="md:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-xl hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 transition-colors"
+                        className="md:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-[color:var(--foreground)] rounded-xl hover:bg-[color:var(--surface-soft)] focus:outline-none focus:ring-2 focus:ring-[color:var(--brand)] transition-colors"
                         aria-label="Open main menu"
                         aria-expanded={isMenuOpen}
                     >
@@ -90,13 +90,13 @@ const Navbar = () => {
                 <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
                     isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-                    <div className="px-6 pb-4 border-t border-white/20 dark:border-gray-700/20">
+                    <div className="px-6 pb-4 border-t border-[color:var(--border-soft)]">
                         <ul className="font-medium flex flex-col space-y-2 mt-4">
                             <li>
                                 <Link
                                     href="/"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="flex items-center py-3 px-4 text-gray-900 rounded-xl hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 transition-colors"
+                                    className="flex items-center py-3 px-4 text-white bg-[color:var(--brand)] rounded-xl hover:bg-[color:var(--brand-deep)] transition-colors"
                                 >
                                     <i className="bi bi-house mr-3"></i> Home
                                 </Link>
@@ -106,7 +106,7 @@ const Navbar = () => {
                                 <Link
                                     href="/community"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="flex items-center py-3 px-4 text-gray-900 rounded-xl hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 transition-colors"
+                                    className="flex items-center py-3 px-4 text-[color:var(--foreground)] rounded-xl hover:bg-[color:var(--surface-soft)] transition-colors"
                                 >
                                     <i className="bi bi-people mr-3"></i> Community
                                 </Link>
@@ -116,7 +116,7 @@ const Navbar = () => {
                                 <a
                                     href="https://github.com/jrKitt/comscikku"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="flex items-center py-3 px-4 text-gray-900 rounded-xl hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 transition-colors"
+                                    className="flex items-center py-3 px-4 text-[color:var(--foreground)] rounded-xl hover:bg-[color:var(--surface-soft)] transition-colors"
                                 >
                                    <i className="bi bi-code mr-3"></i> GitHub
                                 </a>

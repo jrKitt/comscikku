@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f2e7;
-  --foreground: #171717;
-  --surface: #f3e6d2;
-  --ink-soft: #2b2925;
-  --accent: #f25f2c;
-  --accent-deep: #ce4a1d;
-  --ring: #10605b;
+  --background: #f3f5f8;
+  --foreground: #1f2937;
+  --surface: #ffffff;
+  --surface-soft: #eef2f7;
+  --border-soft: #d7deea;
+  --text-muted: #5c6b82;
+  --brand: #4b8fdb;
+  --brand-deep: #3476c1;
 }
 
 @theme inline {
@@ -22,38 +23,18 @@ body {
   color: var(--foreground);
   font-family: var(--font-plex-sans), sans-serif;
   min-height: 100vh;
-  background-image:
-    radial-gradient(circle at 8% 14%, rgb(242 95 44 / 0.14), transparent 30%),
-    radial-gradient(circle at 88% 86%, rgb(16 96 91 / 0.16), transparent 35%),
-    linear-gradient(180deg, #fbf7ee 0%, #f8f2e7 100%);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background-image: linear-gradient(rgb(23 23 23 / 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(23 23 23 / 0.06) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
-}
-
-.headline-tight {
-  letter-spacing: -0.035em;
-  line-height: 0.95;
-}
-
-.paper-panel {
-  background: color-mix(in oklab, var(--surface) 83%, white 17%);
-  border: 1.5px solid rgb(23 23 23 / 0.7);
-  box-shadow: 8px 8px 0 rgb(23 23 23 / 0.95);
+  background-image: linear-gradient(180deg, #f7f9fc 0%, #f3f5f8 100%);
 }
 
 .ticker-track {
   width: max-content;
   animation: ticker-scroll 18s linear infinite;
+}
+
+.soft-card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
 }
 
 @keyframes ticker-scroll {
