@@ -54,5 +54,20 @@
       "github": "https://github.com/artijo",
       "website": "https://artijo.dev"
     }
-  }
+  },
+  {
+    "id": 5,
+    "name": "Pokpong Limpaphan",
+    "username": "@pokpong007x",
+    "title": "ตัวร้าย CP",
+    "bio": "Yo What's up bro, I'm Pokpong. I'm currently working as a secret project my game trainers hub for single-player games at onemod.dev (CEO)",
+    "avatar": "https://avatars.githubusercontent.com/u/30114061?v=4",
+    "skills": ["TypeScript (basic)", "Java (beginner)", "Python (beginner)", "bash (basic)", "C (Intermediate)", "C++ (basic)", "C# (beginner)","Assembly/ASM x64 (basic)"],
+    "links": {
+      "github": "https://github.com/pokpong007",
+      "website": "https://pokpong.net",
+      "linkedin": "https://www.linkedin.com/in/pokpong-limpaphan",
+      "medium": "https://medium.com/@pokpong007"
+    }
+  },
 ]
