@@ -113,9 +113,14 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <button className="px-6 py-3 bg-[color:var(--brand)] hover:bg-[color:var(--brand-deep)] rounded-lg font-medium transition-colors text-white">
-                เข้าร่วมกับเรา
-              </button>
+            <a
+              href="https://github.com/jrKitt/comscikku"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-3 bg-[color:var(--brand)] hover:bg-[color:var(--brand-deep)] rounded-lg font-medium transition-colors text-white"
+            >
+              เข้าร่วมกับเรา
+            </a>
               <button className="px-6 py-3 bg-white hover:bg-[color:var(--surface-soft)] rounded-lg font-medium border border-[color:var(--border-soft)] transition-colors text-[color:var(--foreground)]">
                 ดูกิจกรรม
               </button>
